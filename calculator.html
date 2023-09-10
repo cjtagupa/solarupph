@@ -1,0 +1,576 @@
+<!doctype html>
+
+<html lang="en">
+   
+   
+    <head>
+
+
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="robots" content="noodp">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <!-- PAGE TITLE -->
+        <title>Calculator | Solar Up Philippines</title>
+
+        <meta property="og:title" content="Solar Up Philippines">
+        <meta property="og:site_name" content="Solar Up Philippines">
+        <meta property="og:url" content="https://solarup.ph/">
+        <meta property="og:description" content="Solar Up Philippines, based in Cagayan de Oro City, is your trusted local partner for solar installations. With a commitment to sustainable energy, we bring reliable solar solutions to the Philippines. Our team combines expertise and innovation to empower homes and businesses with clean, efficient, and cost-effective solar power.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://dl.dropboxusercontent.com/scl/fi/p1p1u4xt6ifggd2dupmbc/default.jpg?rlkey=9gwkjvxxbl0zbtuyinug6vqil&dl=0">
+
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/scl/fi/t6zeiaf8mhtevnsn6t7c8/favicon.png?rlkey=g39ja1csa2uzajrin5l6rqnjc&dl=0">
+
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/plugins.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTBHLS0RKQ"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-KTBHLS0RKQ');
+        </script>
+
+        <style type="text/css">
+        	body{
+        		    overflow: auto;
+        	}
+        	#app{
+        		max-width: 800px;
+        		margin: 0 auto;
+        		    padding: 0 30px;
+        	}
+        	.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+        height: 34px;
+
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group>.form-control, .input-group>.form-select {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+.text-muted {
+    color: #cecece;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+.row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
+.col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.form-text {
+    margin-top: 0.25rem;
+    font-size: .875em;
+}
+        </style>
+
+
+    </head>
+
+    <body>
+     <div class="hero">
+<div class="container-fluid">
+	<div class="front-content">
+		<div style="text-align: center;">
+		     <img src="https://dl.dropboxusercontent.com/scl/fi/z81y4axkwf2tt3748ga1k/logo.png?rlkey=efa0cn53nst9a7ulyfvbze5je&dl=0" width="150" alt="image">
+		</div>
+  
+
+
+        <div id="app">
+            <!--<calculator-component />-->
+            <div>
+                <div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-12" style="width: 100%;    padding: 0;">
+                      <div class="form-group">
+                        <label>Average electricity bill</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">₱</div>
+                          </div>
+                          <input type="number" id="input-field" class="form-control bill">
+                        </div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <label>Estimated day usage (in %)</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          min="0"
+                          max="100"
+                          v-model="estimatedDayUsage"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Target savings (in ₱)</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          min="0"
+                          max="100"
+                          v-model="targetSavings"
+                        />
+                      </div> -->
+                      <div class="form-group mt-2">
+                        <button id="btn-calculate" class="btn btn-success form-control">
+                          Calculate
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- <h1>Best Package with Net Metering</h1> -->
+                    <div class="col-6">
+                      <h3>Reduce Bill</h3>
+                      <div class="form-group">
+                        <label>System Size</label>
+                        <input id="bawas-bill-system-size-output" type="text" class="form-control billresult" disabled="">
+                      </div>
+                      <div class="form-group">
+                        <label>Number of panels</label>
+                        <input id="bawas-bill-number-of-panels-output" type="text" class="form-control" disabled="">
+                      </div>
+                      <div class="form-group">
+                        <label>Estimated monthly savings*</label>
+                        <input id="bawas-bill-estimated-monthly-savings-output" type="text" class="form-control" disabled="">
+                        <p id="emailHelp" class="form-text text-muted" style="font-size: 10px">*Savings may vary depending on system utilization.</p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <h3>Zero Bill</h3>
+                      <div class="form-group">
+                        <label>System Size</label>
+                        <input id="zero-bill-system-size-output" type="text" class="form-control" disabled="">
+                      </div>
+                      <div class="form-group">
+                        <label>Number of panels</label>
+                        <input id="zero-bill-number-of-panels-output" type="text" class="form-control" disabled="">
+                      </div>
+                      <div class="form-group">
+                        <label>Estimated monthly savings**</label>
+                        <input id="zero-bill-estimated-monthly-savings-output" type="text" class="form-control" disabled="">
+                        <p id="emailHelp" class="form-text text-muted" style="font-size: 10px">**Save ₱<span id="zero-bill-max-output"></span> or more when when you increase system
+                          utilization.</p>
+                      </div>
+                    </div>
+                    <small id="emailHelp" class="form-text text-muted" style="font-size: 10px; font-size: 10px; margin-top: 0px">Tip for higher system utilization: use power-hungry appliances during
+                      solar peak hours from 10AM to 2PM.</small>
+                    <br>
+                    <small id="emailHelp" class="form-text text-muted">For Reduce Bill, to maximize bill reduction, savings are calculated using a conservative estimate of 3.9 peak sun hours, which represents the solar energy harvested, coupled with system utilization ranging from 50% to 100%.
+
+</small>
+                    <small id="emailHelp" class="form-text text-muted">For Zero Bill, savings are based on a successful Net Metering
+                      application, a conservative 3.9 peak sun hours (i.e. solar energy
+                      harvest), and 40% to 60% system utilization.</small>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    </div>
+    </div>
+
+
+  <!-- BACKGROUND CONTENT -->
+            <div class="background-content parallax-on">
+
+                <div class="background-overlay"></div>
+                <div class="background-img layer" data-depth="0.05"></div>
+                
+            </div>
+            <!-- /BACKGROUND CONTENT -->
+
+    </div>
+
+
+    <script>
+    const submitBtn = document.getElementById('btn-calculate');
+    let input = document.getElementById('input-field');
+    
+    const bawasBillSystemSizeOutput = document.getElementById('bawas-bill-system-size-output');
+    const bawasBillNumberOfPanelsOutput = document.getElementById('bawas-bill-number-of-panels-output');
+    const bawasBillEstimatedMonthlySavingsOutput = document.getElementById('bawas-bill-estimated-monthly-savings-output');
+    
+    const zeroBillSystemSizeOutput = document.getElementById('zero-bill-system-size-output');
+    const zeroBillNumberOfPanelsOutput = document.getElementById('zero-bill-number-of-panels-output');
+    const zeroBillEstimatedMonthlySavingsOutput = document.getElementById('zero-bill-estimated-monthly-savings-output');
+    const zeroBillMaxOutput = document.getElementById('zero-bill-max-output');
+    
+    //let input = document.querySelector('.bill').value;
+    
+    console.log(input.value);
+    
+    let inputNumber = input.value;
+    //convert inputvalue to integer
+    let aveBill = inputNumber*1;
+    
+    //Set initial input value to 0
+    input.setAttribute('value', aveBill);
+    
+    
+    //console.log("This ran");
+    //console.log(aveBill);
+    
+    
+    
+    //Set initial Values of bawasbill to 0
+    let bawasPanels = 0;
+    let bawasBillNumberOfPanelsAnswer = bawasPanels;
+    bawasBillNumberOfPanelsOutput.setAttribute('value', bawasBillNumberOfPanelsAnswer);
+    
+    
+    let bawasSystemSize = 0;
+    let bawasBillSystemSizeOutputAnswer = bawasSystemSize;
+    bawasBillSystemSizeOutput.setAttribute('value', bawasBillSystemSizeOutputAnswer);
+    
+    let bawasSavings = 0;
+    let bawasBillEstimatedMonthlySavingsAnswer = bawasSavings;
+    bawasBillEstimatedMonthlySavingsOutput.setAttribute('value', bawasBillEstimatedMonthlySavingsAnswer);
+    
+    //Set initial Values of zerobill to 0
+    let zeroSystemSize = 0;
+    let zeroBillSystemSizeOutputAnswer = zeroSystemSize;
+    zeroBillSystemSizeOutput.setAttribute('value', zeroBillSystemSizeOutputAnswer);
+    
+    let zeroPanels = 0;
+    let zeroBillNumberOfPanelsAnswer = zeroPanels;
+    zeroBillNumberOfPanelsOutput.setAttribute('value', zeroBillNumberOfPanelsAnswer);
+    
+    let zeroSavings = 0;
+    let zeroBillEstimatedMonthlySavingsAnswer = zeroSavings;
+    zeroBillEstimatedMonthlySavingsOutput.setAttribute('value', zeroBillEstimatedMonthlySavingsAnswer);
+    
+    let zeroBillMax = 0;
+    let zeroBillMaxAnswer = zeroBillMax;
+    zeroBillMaxOutput.innerHTML = zeroBillMaxAnswer;
+    
+    
+    function showCalculations() {
+    
+    
+      console.log('function working');
+      inputNumber = input.value;
+      //console.log(input.value);
+    
+      aveBill = inputNumber*1;
+      console.log(aveBill);
+    
+      // BawasBill
+    
+      bawasPanels = bawasPanelsCalc();
+      bawasSystemSize = bawasSystemSizeCalc();
+      bawasSavings = bawasSavingsCalc();
+    
+      bawasBillSystemSizeOutputAnswer = bawasSystemSize;
+      //console.log(bawasBillSystemSizeOutputAnswer);
+      bawasBillSystemSizeOutput.setAttribute('value', bawasBillSystemSizeOutputAnswer);
+    
+      bawasBillNumberOfPanelsAnswer = bawasPanels;
+      //console.log(bawasBillNumberOfPanelsAnswer);
+      bawasBillNumberOfPanelsOutput.setAttribute('value', bawasBillNumberOfPanelsAnswer);
+    
+      bawasBillEstimatedMonthlySavingsAnswer = bawasSavings;
+      //console.log(bawasBillEstimatedMonthlySavingsAnswer);
+      bawasBillEstimatedMonthlySavingsOutput.setAttribute('value', bawasBillEstimatedMonthlySavingsAnswer);
+
+      function getBawasSystemSizeCalc() {
+        var resultSystemSize = aveBill <= 6000 && aveBill > 0 ? 2.5 : aveBill / (3.9 * 10 * 30 * 1.9);
+        var numberOfSystemSize = Math.round(resultSystemSize * 2) / 2;
+
+        return numberOfSystemSize;
+      }
+    
+      function bawasSystemSizeCalc(numberOfSystemSize) {
+        var systemSize = getBawasSystemSizeCalc(numberOfSystemSize) + " kWp";
+        
+        return systemSize;
+      };
+
+      function bawasPanelsCalc(numberOfSystemSize) {
+        var numberOfPanels = getBawasSystemSizeCalc(numberOfSystemSize) * 2;
+    
+        return numberOfPanels;
+      };
+    
+      function bawasSavingsCalc() {
+        var numberOfSystemSize = getBawasSystemSizeCalc(numberOfSystemSize)
+        var minSavings = {
+            savings:
+                "₱ " +
+                Math.round(
+                    numberOfSystemSize * 3 * 10 * 30 * 1
+                ).toLocaleString(),
+        }
+
+        var maxSavings = {
+            savings: 
+                "₱ " +
+                Math.round(
+                    numberOfSystemSize * 3 * 10 * 30 * 1.6667
+                ).toLocaleString(),
+        };
+
+        finalSavings = minSavings.savings + " - " + maxSavings.savings;
+    
+        return finalSavings;
+      };
+    
+    
+      // ZeroBill  
+    
+      zeroPanels = zeroPanelsCalc();
+      zeroSystemSize = zeroSystemSizeCalc();
+      zeroSavings = zeroSavingsCalc();
+      zeroBillMax = zeroBillMaxsCalc(40, 1.1);
+    
+      let zeroBillSystemSizeOutputAnswer = zeroSystemSize;
+      //console.log(zeroBillSystemSizeOutputAnswer);
+      zeroBillSystemSizeOutput.setAttribute('value', zeroBillSystemSizeOutputAnswer);
+    
+      let zeroBillNumberOfPanelsAnswer = zeroPanels;
+      //console.log(zeroBillNumberOfPanelsAnswer);
+      zeroBillNumberOfPanelsOutput.setAttribute('value', zeroBillNumberOfPanelsAnswer);
+    
+      let zeroBillEstimatedMonthlySavingsAnswer = zeroSavings;
+      //console.log(zeroBillEstimatedMonthlySavingsAnswer);
+      zeroBillEstimatedMonthlySavingsOutput.setAttribute('value', zeroBillEstimatedMonthlySavingsAnswer);
+    
+      let zeroBillMaxAnswer = zeroBillMax;
+      //console.log(zeroBillEstimatedMonthlySavingsAnswer);
+      zeroBillMaxOutput.innerHTML = zeroBillMaxAnswer;
+     
+      function zeroPanelsCalc() {
+
+        var numberOfSystemSize = getBawasSystemSizeCalc(numberOfSystemSize)
+        var numberOfPanels = numberOfSystemSize * 2;
+        var panels = numberOfPanels * 2;
+
+        var data = {
+            panels: panels, 
+        }
+    
+        return data.panels;
+      };
+    
+    
+    
+      function zeroSystemSizeCalc() {
+        var numberOfSystemSize = getBawasSystemSizeCalc(numberOfSystemSize)
+        var data = {
+            systemSize: numberOfSystemSize * 2 + " kWp",
+        }
+        
+        return data.systemSize;
+      };
+    
+    
+    
+      function zeroSavingsCalc() {
+    
+        function computeDataPanels(dayUsage, savingsPercent) {
+          var dailyCost = aveBill / 30;
+          var dayCost = (dailyCost * dayUsage) / 100;
+          console.log("day cost: " + dayCost);
+          var nightCost = dailyCost - dayCost;
+          console.log("night cost: " + nightCost);
+          var dailyTargetsavings = (aveBill * savingsPercent) / 30;
+          console.log("daily target savings: " + dailyTargetsavings);
+          var savingsPerPanel = 0.45 * 3.9 * 10;
+    
+          var data = {
+            panels: 0,
+            systemSize: "",
+            savings: "",
+          };
+    
+          if (dailyTargetsavings <= dayCost) {
+            console.log("night cost to cover: 0");
+            data.panels = Math.ceil(dailyTargetsavings / savingsPerPanel);
+            data.savings = "₱ " + Math.round(data.panels * 0.45 * 3.9 * 10 * 30);
+          } else {
+            var totalNightCostToCover = dailyTargetsavings - dayCost;
+            console.log("night cost to cover:" + totalNightCostToCover);
+            var pesoCreditsNeeded = totalNightCostToCover * 2;
+            data.panels = Math.ceil(
+              (dayCost + pesoCreditsNeeded) / savingsPerPanel
+            );
+            var totalSavingsPerDay = data.panels * 0.45 * 3.9 * 10;
+            console.log("Total Savings Per day" + totalSavingsPerDay);
+            var pesoCreditPerDay = (totalSavingsPerDay - dayCost) / 2;
+            console.log("Peso credit per day" + pesoCreditPerDay);
+            var actualSavingsPerDay = dayCost + pesoCreditPerDay;
+    
+            data.savings =
+              "₱ " + Math.round(actualSavingsPerDay * 30).toLocaleString();
+    
+            data.systemSize = Math.round(data.panels * 45) / 100 + " kWp";
+          }
+    
+          return data.panels;
+        };
+    
+        function computeSavingsMax(dayUsage, savingsPercent) {
+          var dailyCost = aveBill / 30;
+          var dayCost = (dailyCost * dayUsage) / 100;
+          console.log("day cost: " + dayCost);
+          var nightCost = dailyCost - dayCost;
+          console.log("night cost: " + nightCost);
+          var dailyTargetsavings = (aveBill * savingsPercent) / 30;
+          console.log("daily target savings: " + dailyTargetsavings);
+          var savingsPerPanel = 0.45 * 3.9 * 10;
+    
+          var data = {
+            panels: 0,
+            systemSize: "",
+            savings: "",
+          };
+    
+          if (dailyTargetsavings <= dayCost) {
+            console.log("night cost to cover: 0");
+            data.panels = Math.ceil(dailyTargetsavings / savingsPerPanel);
+            data.savings = "₱ " + Math.round(data.panels * 0.45 * 3.9 * 10 * 30);
+          } else {
+            var totalNightCostToCover = dailyTargetsavings - dayCost;
+            console.log("night cost to cover:" + totalNightCostToCover);
+            var pesoCreditsNeeded = totalNightCostToCover * 2;
+            data.panels = Math.ceil(
+              (dayCost + pesoCreditsNeeded) / savingsPerPanel
+            );
+            var totalSavingsPerDay = data.panels * 0.45 * 3.9 * 10;
+            console.log("Total Savings Per day" + totalSavingsPerDay);
+            var pesoCreditPerDay = (totalSavingsPerDay - dayCost) / 2;
+            console.log("Peso credit per day" + pesoCreditPerDay);
+            var actualSavingsPerDay = dayCost + pesoCreditPerDay;
+    
+            data.savings =
+              "₱ " + Math.round(actualSavingsPerDay * 30).toLocaleString();
+    
+            data.systemSize = Math.round(data.panels * 45) / 100 + " kWp";
+          }
+    
+          return data.savings;
+        };
+    
+        let computedPanels = computeDataPanels(40, 1.1);
+        console.log("computed Panels" + computedPanels);/* Correct */ 
+    
+    
+        function computeWithNumberOfPanels (panels, savingsPercent, data) {
+          var dailyCost = aveBill / 30;
+          var dayCost = (dailyCost * 0.7) / 100;
+          var nightCost = dailyCost - dayCost;
+          var dailyTargetsavings = (aveBill * savingsPercent) / 30;
+          var savingsPerPanel = 0.45 * 3.9 * 10;
+    
+          var data = {
+            panels: panels,
+            systemSize: Math.round(panels * 45) / 100 + " kWp",
+            savings: "",
+          };
+    
+          if (dailyTargetsavings <= dayCost) {
+            console.log("night cost to cover: 0");
+            data.savings = "₱ " + Math.round(data.panels * 0.45 * 3.9 * 10 * 30);
+          } else {
+            var totalNightCostToCover = dailyTargetsavings - dayCost;
+            console.log("night cost to cover: " + totalNightCostToCover);
+            var pesoCreditsNeeded = totalNightCostToCover * 2;
+            data.panels = panels;
+            var totalSavingsPerDay = data.panels * 0.45 * 3.9 * 10;
+            console.log("Total Savings Per day: " + totalSavingsPerDay);
+            var pesoCreditPerDay = (totalSavingsPerDay - dayCost) / 2;
+            console.log("Peso credit per day: " + pesoCreditPerDay);
+            var actualSavingsPerDay = dayCost + pesoCreditPerDay;
+    
+            data.savings =
+              "₱ " + Math.round(actualSavingsPerDay * 30).toLocaleString();
+          }
+    
+          return data.savings;
+        }
+
+        // let finalSavingsmin = computeWithNumberOfPanels(computedPanels,1.1);
+        // let finalSavingsmax = computeSavingsMax(40, 1.1);
+        var numberOfSystemSize = getBawasSystemSizeCalc()
+        var getZeroNumberOfSystemSize = numberOfSystemSize * 2;
+
+        var finalSavingsmin = "₱ " + Math.round(getZeroNumberOfSystemSize * 3 * 10 * 30 * 1).toLocaleString();
+
+        var finalSavingsmax = "₱ " + Math.round(getZeroNumberOfSystemSize * 3 * 10 * 30 * (1 * 1.6667)).toLocaleString();
+        finalSavings = finalSavingsmin + " - " + finalSavingsmax;
+        return finalSavings;   
+    
+      };
+    
+      function zeroBillMaxsCalc(data) {
+        var panels = zeroPanelsCalc(data.panels)
+        answer =  (panels * 3.9 * 10 * 30).toLocaleString();;
+          return answer;
+        }
+    
+    
+    };
+    
+    
+    submitBtn.addEventListener('click', showCalculations);
+    
+</script>
+
+    </body> 
+    
+    
+</html>
